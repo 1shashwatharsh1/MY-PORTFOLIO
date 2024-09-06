@@ -1,0 +1,309 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Freelancer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+        .toggle-button {
+            transition: transform 0.3s ease;
+        }
+        .toggle-button.active {
+            transform: rotate(180deg);
+        }
+        .interactive-button {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .interactive-button:hover {
+            background-color: #10B981; /* Tailwind's green-500 */
+            color: white;
+        }
+        .glass-design {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+        .glass-design:hover {
+            background: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 8px 60px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        .shiny-background {
+            background: url('./assets/BGC.jpg') no-repeat center center;
+            background-size: cover;
+            animation: shine 3s infinite alternate;
+        }
+        @keyframes shine {
+            0% {
+                filter: brightness(1);
+            }
+            100% {
+                filter: brightness(1.3);
+            }
+        }
+        .orange-font-3d {
+            color: #FFA500; /* Normal orange color */
+            text-shadow: 1px 1px 0 #ccc, 2px 2px 0 #ccc, 3px 3px 0 #ccc, 4px 4px 0 #ccc, 5px 5px 0 #ccc, 6px 6px 0 #ccc;
+        }
+        .about-section {
+            background: url('https://4kwallpapers.com/images/walls/thumbs_3t/8742.jpg') no-repeat center center;
+            background-size: cover;
+            color: #000000; /* Black text */
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        .about-text {
+            font-size: 1.25rem; /* Increase font size */
+            font-family: 'Georgia', serif; /* Change font style */
+            font-weight: bold; /* Make text bold */
+        }
+        .contact-section {
+            background-color: #FFA500; /* Orange background */
+            color: #000000; /* Black text */
+        }
+        .skills-section {
+            background-color: #000000ee; /* Orange background */
+            color: #000000; /* Black text */
+            padding: 2rem;
+            width: 100%;
+            height: 100%;
+        }
+        .skills-icons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+        .skills-icons i {
+            font-size: 4rem;
+            transition: transform 0.3s ease, text-shadow 0.3s ease;
+        }
+        .skills-icons i:hover {
+            transform: scale(1.2);
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.7), 0 0 40px rgba(255, 255, 255, 0.7), 0 0 60px rgba(255, 255, 255, 0.7);
+        }
+        .skills-icons svg {
+            font-size: 4rem; /* Ensure it matches the size of Font Awesome icons */
+            transition: transform 0.3s ease, filter 0.3s ease; /* Match transition effects */
+        }
+        .skills-icons svg:hover {
+            transform: scale(1.2);
+            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.7)) drop-shadow(0 0 40px rgba(255, 255, 255, 0.7)) drop-shadow(0 0 60px rgba(255, 255, 255, 0.7));
+        }
+        .fab.fa-css3-alt {
+            color: #264de4;
+        }
+        .fab.fa-html5 {
+            color: #e34c26;
+        }
+        .fab.fa-react {
+            color: #61dafb;
+        }
+        .fab.fa-python {
+            color: #306998;
+        }
+        .fab.fa-js {
+            color: #f7df1e;
+        }
+        .fab.fa-cuttlefish {
+            color: #00599c;
+        }
+        .fab.fa-node-js {
+            color: #68a063;
+        }
+        .fab.fa-cplusplus {
+            color: #00599c;
+        }
+
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <div class="w-1/4 p-8 flex flex-col items-center glass-design">
+            <h1 class="text-xl font-semibold mb-8">Shashwat Harsh </h1>
+            <nav class="flex flex-col space-y-4 text-lg">
+                <a class="text-white cursor-pointer" id="home-link">Home</a>
+                <a class="cursor-pointer interactive-button text-white" id="about-link">About Me</a>
+                <a class="cursor-pointer text-white" id="what-link">What I Do</a>
+                <a class="text-white cursor-pointer" id="skills-link">Skills</a>
+                <a class="text-white cursor-pointer" id="contact-link">Contact</a>
+            </nav>
+            <div class="mt-auto flex space-x-4">
+              
+                <h3 class="mt-auto flex space-x-4">GITHUB: </h3>
+                <a class="text-white cursor-pointer" id="github-link" href="https://github.com/1shashwatharsh1" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="w-3/4 relative shiny-background">
+            <div class="relative flex flex-col items-center justify-center h-full text-center" id="content">
+                <h2 class="text-2xl mb-4">Hello there, I'm Shashwat</h2>
+                <h1 class="text-6xl font-bold mb-4">
+                    <span id="typed-text" class="orange-font-3d"></span>
+                </h1>
+            </div>
+        </div>
+    </div>
+    <div id="about-section" class="hidden p-8 about-section">
+        <a class="text-black cursor-pointer mb-4" id="home-link-about">Home</a>
+        <h2 class="text-2xl mb-4">About Me</h2>
+        <p class="about-text mb-8">As a Computer Science student specializing in Artificial Intelligence and Machine Learning, I am passionate about leveraging cutting-edge technologies to solve complex problems and drive innovation. My academic journey has equipped me with a strong foundation in data analysis, predictive modeling, and algorithm development. I am equally enthusiastic about cybersecurity, where I explore the critical aspects of protecting systems and data from potential threats. This dual interest in AI/ML and cybersecurity allows me to approach challenges from a unique perspective, blending advanced technology with robust security practices. I am committed to continuous learning and excited to contribute to projects that push the boundaries of what technology can achieve while ensuring it remains secure and resilient.</p>
+    </div>
+    <div id="contact-section" class="hidden p-8 contact-section">
+        <a class="text-black cursor-pointer mb-4" id="home-link-contact">Home</a>
+        <h2 class="text-2xl mb-4">Contact Me</h2>
+        <form id="contact-form" action="mailto:codeninja442@gmail.com" method="post" enctype="text/plain">
+            <div class="mb-4 w-3/4">
+                <label class="block text-black text-sm font-bold mb-2" for="name">Name</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="Your Name" required>
+            </div>
+            <div class="mb-4 w-3/4">
+                <label class="block text-black text-sm font-bold mb-2" for="email">Email</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="Your Email" required>
+            </div>
+            <div class="mb-4 w-3/4">
+                <label class="block text-black text-sm font-bold mb-2" for="message">Message</label>
+                <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline" id="message" placeholder="Your Message" required></textarea>
+            </div>
+            <div class="flex items-center justify-between w-3/4">
+                <button class="bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                    Send
+                </button>
+            </div>
+        </form>
+    </div>
+    <div class="skills-section">
+        <div class="skills-icons">
+            <i class="fab fa-css3-alt"></i>
+            <i class="fab fa-html5"></i>
+            <i class="fab fa-react"></i>
+            <i class="fab fa-python"></i>
+            <i class="fab fa-js"></i>
+            <i class="fab fa-cuttlefish"></i>
+            <i class="fab fa-node-js"></i>
+            <i class="fab fa-cplusplus"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="none" viewBox="0 0 256 256">
+                <rect width="256" height="256" fill="#00599C" rx="60" style=""></rect>
+                <path fill="#fff" d="M110.759 210.517C65.1254 210.517 28 173.392 28 127.759C28 82.1254 65.1254 45 110.759 45C140.204 45 167.667 60.8458 182.427 86.3533L146.611 107.079C139.224 94.3111 125.485 86.3793 110.759 86.3793C87.9416 86.3793 69.3793 104.942 69.3793 127.759C69.3793 150.575 87.9416 169.138 110.759 169.138C125.486 169.138 139.225 161.206 146.613 148.436L182.429 169.161C167.669 194.671 140.206 210.517 110.759 210.517Z"/>
+                <path fill="#fff" d="M193.517 123.161H184.321V113.965H175.127V123.161H165.931V132.356H175.127V141.552H184.321V132.356H193.517V123.161Z"/>
+                <path fill="#fff" d="M228 123.161H218.804V113.965H209.61V123.161H200.414V132.356H209.61V141.552H218.804V132.356H228V123.161Z"/>
+            </svg>
+        </div>
+    </div>
+
+    <script>
+        var typed = new Typed('#typed-text', {
+            strings: ["I'm a web developer.", "and I love gaming."],
+            typeSpeed: 50,
+            backSpeed: 25,
+            loop: true
+        });
+
+        document.getElementById('home-link').addEventListener('click', function() {
+            document.getElementById('content').innerHTML = `
+                <h2 class="text-2xl mb-4">Welcome</h2>
+                <h1 class="text-6xl font-bold mb-4">
+                    <span id="typed-text" class="orange-font-3d"></span>
+                </h1>
+            `;
+            new Typed('#typed-text', {
+                strings: ["I'm a web developer.", "and I love gaming."],
+                typeSpeed: 50,
+                backSpeed: 25,
+                loop: true
+            });
+        });
+
+        document.getElementById('about-link').addEventListener('click', function() {
+            document.getElementById('content').innerHTML = `
+                <div class="relative flex flex-col items-center justify-center h-full text-center about-section" style="animation: fadeIn 1s ease-in-out;">
+                    <a class="text-black cursor-pointer mb-4" id="home-link-about">Home</a>
+                    <h2 class="text-2xl mb-4">About Me</h2>
+                    <p class="about-text mb-8">As a Computer Science student specializing in Artificial Intelligence and Machine Learning, I am passionate about leveraging cutting-edge technologies to solve complex problems and drive innovation. My academic journey has equipped me with a strong foundation in data analysis, predictive modeling, and algorithm development. I am equally enthusiastic about cybersecurity, where I explore the critical aspects of protecting systems and data from potential threats. This dual interest in AI/ML and cybersecurity allows me to approach challenges from a unique perspective, blending advanced technology with robust security practices. I am committed to continuous learning and excited to contribute to projects that push the boundaries of what technology can achieve while ensuring it remains secure and resilient.</p>
+                </div>
+            `;
+            document.getElementById('home-link-about').addEventListener('click', function() {
+                document.getElementById('home-link').click();
+            });
+        });
+
+        document.getElementById('what-link').addEventListener('click', function() {
+            document.getElementById('content').innerHTML = `
+                <h2 class="text-2xl mb-4">What I Do</h2>
+                <p class="text-lg mb-8">
+As a Computer Science student, I am deeply passionate about web development and gaming. My academic background in Computer Science provides me with a robust understanding of programming concepts, algorithms, and data structures, which I leverage to build dynamic and engaging web applications. I enjoy creating innovative and user-friendly websites that combine both functionality and aesthetic appeal. Outside of my academic pursuits, I am an avid gamer, which fuels my creativity and problem-solving skills. The strategic thinking and attention to detail required in gaming often inspire my approach to web development, allowing me to design solutions that are both effective and enjoyable. This blend of technical expertise and creative passion drives me to continuously explore new technologies and stay at the forefront of both fields. .</p>
+            `;
+        });
+
+        document.getElementById('contact-link').addEventListener('click', function() {
+            document.getElementById('content').innerHTML = `
+                <div class="relative flex flex-col items-center justify-center h-full text-center contact-section">
+                    <a class="text-black cursor-pointer mb-4" id="home-link-contact">Home</a>
+                    <h2 class="text-2xl mb-4">Contact Me</h2>
+                    <form id="contact-form" action="mailto:codeninja442@gmail.com" method="post" enctype="text/plain">
+                        <div class="mb-4 w-3/4">
+                            <label class="block text-black text-sm font-bold mb-2" for="name">Name</label>
+                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="mb-4 w-3/4">
+                            <label class="block text-black text-sm font-bold mb-2" for="email">Email</label>
+                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="mb-4 w-3/4">
+                            <label class="block text-black text-sm font-bold mb-2" for="message">Message</label>
+                            <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline" id="message" placeholder="Your Message" required></textarea>
+                        </div>
+                        <div class="flex items-center justify-between w-3/4">
+                            <button class="bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                                Send
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            `;
+            document.getElementById('home-link-contact').addEventListener('click', function() {
+                document.getElementById('home-link').click();
+            });
+        });
+
+        document.getElementById('skills-link').addEventListener('click', function() {
+            document.getElementById('content').innerHTML = `
+                <div class="relative flex flex-col items-center justify-center h-full text-center skills-section">
+                    <a class="text-black cursor-pointer mb-4" id="home-link-skills">Home</a>
+                    <h2 class="text-2xl mb-4">Skills</h2>
+                    <div class="skills-icons">
+                         <i class="fab fa-css3-alt" title="CSS"></i>
+                         <i class="fab fa-html5" title="HTML"></i>
+                         <i class="fab fa-react" title="React"></i>
+                        <i class="fab fa-python" title="Python"></i>
+                        <i class="fab fa-js" title="JavaScript"></i>
+                        <i class="fab fa-cuttlefish" title="C++"></i>
+                        <i class="fab fa-node-js" title="Node.js"></i>
+                    </div>
+                </div>
+            `;
+            document.getElementById('home-link-skills').addEventListener('click', function() {
+                document.getElementById('home-link').click();
+            });
+        });
+    </script>
+</body>
+</html>
